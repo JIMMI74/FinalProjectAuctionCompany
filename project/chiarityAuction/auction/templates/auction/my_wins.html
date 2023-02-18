@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}{{ block.super }} - WINNINGS{% endblock head_title %}
+{% block content %}
+{% block body %}
+<body class="win" style="background-color: darkolivegreen">
+                {% if request.user == user %}<h2 class="win_text" style="font-size:3rem;color: #12232E;padding:10px;
+                font-family:'Apple Braille',sans-serif; border-color:#12232E">AUCTIONS WON</h2>{% endif %}
+
+
+    {% for listing in winned_auctions %}
+    <div style="display:flex; background-color: coral; margin-top:40px; height:60px;width:50vw; margin-left:125px;
+            ; border-style:solid; border-color: ghostwhite">
+            <h6 style="text-indent: 5rem; color:#12232E;margin-top:17px;font-size:1.5rem "> PRODUCT</h6>
+            <h6 style="text-indent: 10rem;color:darkred;margin-top:17px;font-size:1.5rem"> PRICE</h6>
+            <h6 style="text-indent:9rem;color:#12232E;margin-top:17px;font-size:1.5rem "> END AUCTION</h6>
+                <h6 style="text-indent:11rem;color:#12232E;margin-top:17px;font-size:1.5rem "> IMAGE</h6>
+            </div>
+<div id="element" style="padding:8rem" >
+        <ul>
+            <li>
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-sm">
+                            <a style="font-size: 2rem;color:#12232E"   href="{% url 'listing_view' listing.id %}">{{listing.product}}</a>
+                        </div>
+                        <div class="col col-sm" style="font-size: 2rem; color:darkred;height:50px; border-style: solid;
+                         background-color: whitesmoke; width:10px; border-radius: 20px 20px 20px 20px">
+                            <p style="margin-left:50px">{{listing.current_price}} $</p>
+                        </div>
+                        <div class="col col-sm" style="font-size:1.5rem;color:#12232E;">
+                            <p style="margin-left:50px">{{listing.end}}</p>
+                        </div>
+                          <div class="col col-lg" style="text-indent:8rem;">
+                            {% if listing.photo %}
+                                <img src="{{listing.photo.url}}" alt="" style="max-width: 50%;">
+                            {% else %}
+                                No picture
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+</div>
+<div style="display:flex; background-color: coral; margin-top:40px; height:30px;width:50vw; margin-left:125px;
+            ; border-style:solid; border-color: darkgreen"></div>
+
+
+
+    {% empty %}
+       <div>
+        <p id="t_color"style="color:ghostwhite; font-size: 3rem;padding:10rem">NO WIN AT THE MOMENT
+         <img class="emoticon" src="../static/image/emo.jpeg" alt="emoticon"> </p>
+        </div>
+
+    {% endfor %}
+</body>
+    {% endblock %}
+    {% endblock %}

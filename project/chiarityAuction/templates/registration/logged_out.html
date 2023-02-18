@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head_title %}{{ block.super }} | Logout{% endblock head_title %}
+
+{% block content %}
+<body id="logout" style="background-color:darkolivegreen">
+    <div class="row justify-content-center mt-4" style="padding:5rem">
+        <div class="col-6 text-center">
+           <p style="font-size: 1.5rem;font-family:'Apple Braille',sans-serif">Logged out completed!</p>
+            <a class="link-info" href="{% url 'login' %}" style="font-size:3rem;font-family:'Apple Braille',sans-serif;
+            color:#12232E">Log In</a>
+        </div>
+    </div>
+</body>
+
+{% endblock content %}

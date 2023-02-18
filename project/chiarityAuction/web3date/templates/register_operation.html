@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}New Listing{% endblock %}
+
+{% block content %}
+{% block body %}
+<body style="padding:0;box-sizing:content-box;margin:0;background-color:darkolivegreen">
+    <h2 style="color:#12232E;font-size:3rem;padding:3rem">CLOSED AND REGISTERED AUCTIONS</h2>
+    <div style="display:flex;border-color:ghostwhite;background-color:coral;border-style:solid;
+    margin-top:40px; height:60px;border-radius:10px 10px 1px 1px; padding:1rem">
+            <h6 style="text-indent: 3rem; color:black;margin-top:20px; "> PRODUCT</h6>
+            <h6 style="text-indent: 9rem;color:black;margin-top:20px;"> END AUCTION</h6>
+            <h6 style="text-indent: 10rem;margin-top:20px; color:darkred"> WINNER</h6>
+            <h6 style="text-indent: 10rem;margin-top:20px; color:black"> PRICE</h6>
+            <h6 style="text-indent: 10rem;color:black;margin-top:20px;"> IMAGE</h6>
+
+
+            </div>
+<div id="background" style="border-style:solid;border-color:darkgreen;border-top-color:ghostwhite;background-color:olivedrab">
+
+
+    {% for listing in active_listings %}
+<br><br>
+
+
+<div>
+    <div class="row" style="padding:3rem">
+        <div class="col col-sm">
+            <a style="color:#12232E;font-size:1.5rem;font-family:'Apple Braille',sans-serif;size:1.5rem" href="{% url 'listing_view' listing.id %}">{{listing.product}}   </a>
+</div>
+        <div class="col col-sm" style="color:#12232E;font-family:'Apple Braille',sans-serif;">
+            {{listing.end}}
+</div>
+        <div class="col col-lg" style="font-family:'Apple Braille',sans-serif;font-size:1.5rem;color:darkred;
+        text-indent:5rem">
+            {{listing.current_winner}}
+</div>
+        <div class="col col-sm" style="color:whitesmoke;font-family:'Apple Braille',sans-serif;text-indent:4rem">
+            {{listing.current_price}} $
+</div>
+
+        <div class="col col-lg" style="color:#12232E;font-family: 'Apple Braille',sans-serif;text-indent:4rem">
+            {% if listing.photo %}
+                <img src="{{listing.photo.url}}" alt="" style="max-width: 30%;">
+            {% else %}
+                No picture
+            {% endif %}
+</div>
+
+    </div>
+</div>
+    {% empty %}
+        <p>AT THE MOMENT NO AUCTION REGISTERED</p>
+    {% endfor %}
+</div>
+</body>
+    {% endblock %}
+    {% endblock %}

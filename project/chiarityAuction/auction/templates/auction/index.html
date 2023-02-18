@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}New Listing{% endblock %}
+
+{% block content %}
+{% block body %}
+<body style="padding: 0; box-sizing:content-box; margin:0;background-color: darkolivegreen">
+    <h2 style="color:#12232E;font-family: 'Apple Braille',sans-serif;font-size:3rem">Active Listings</h2>
+   <i class="fa-solid fa-rotate-right" style="color:indianred;padding:1rem"></i>
+ <scipt>
+     <button id="ref" onclick="fetch('/batch').then(()=>location.reload())" style="width:5vw;height:4vh; margin-top:10px;
+     border-radius:10px 10px 10px 10px">REFRESH</button>
+ </scipt> <h6 style="color:ghostwhite; margin-left: 60px"> ...updated list</h6>
+        <div style="display:flex; background-color:coral; margin-top:100px; height:60px;border-radius:10px 10px 10px 10px;
+        padding:1.5rem; border-top-style:solid; border-top-color: whitesmoke" >
+            <h6 style="text-indent: 2.5rem; color:#12232E;margin-top:20px; "> CODE</h6>
+            <h6 style="text-indent: 9rem; color:#12232E;margin-top:20px; "> PRODUCT</h6>
+            <h6 style="text-indent: 7rem;color:darkred;margin-top:20px;"> PRICE</h6>
+            <h6 style="text-indent: 7rem;color:#12232E;margin-top:20px; "> DESCRIPTION</h6>
+            <h6 style="text-indent: 6rem;color:#12232E;margin-top:20px; "> IMAGE</h6>
+            <h6 style="text-indent: 8rem;color:#12232E ;margin-top:20px;"> AUTHOR</h6>
+            </div>
+    <div class="auction_active" style="background-color:olivedrab;border-color:darkgreen;border-style:solid;padding:2rem">
+    
+    {% for listing in active_listings %}
+
+
+        <ul>
+            <li>
+                <div class="container">
+                    <div class="row">
+                         <div class="col col-sm">
+                            <a style="color:#12232E;font-family: 'Apple Braille',sans-serif;" >{{listing.auction_number}}   </a>
+                        </div>
+                        <div class="col col-sm">
+                            <a style="color:#12232E;font-family: 'Apple Braille',sans-serif;" href="{% url 'listing_view' listing.id %}">{{listing.product}}   </a>
+                        </div>
+                        <div class="col col-sm" style="color:darkred;font-family: 'Apple Braille',sans-serif;">
+                            {{listing.current_price}}
+                        </div>
+                        <div class="col col-lg" style="color:#12232E;font-family: 'Apple Braille',sans-serif;">
+                            {{listing.description}}
+                        </div>
+                        <div class="col col-lg" style="color:#12232E;font-family: 'Apple Braille',sans-serif;">
+                            {% if listing.photo %}
+                                <img src="{{listing.photo.url}}" alt="" style="max-width:25%;">
+                            {% else %}
+                                No picture
+                            {% endif %}
+                        </div>
+                        <div class="col col-sm" style="color:#12232E;font-family: 'Apple Braille',sans-serif;">
+                            {{listing.profile.user}}
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+
+
+   
+    {% empty %}
+        <p>No active listings</p>
+    {% endfor %}
+</div>
+</body>
+    {% endblock %}
+    {% endblock %}
+    

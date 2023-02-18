@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}{{ block.super }} - Edit Listing{% endblock head_title %}
+
+{% block content %}
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <h2 style="color:#12232E">Edit Listing</h2>
+
+    <form action="{% url 'edit_listing' id %}" method="POST" enctype="multipart/form-data" style="color:#12232E">
+        {% csrf_token %}
+        <div class="form-group">
+            {{form.as_p}}
+            <input type="hidden" name="type_form" value="{{type_form}}">
+            <input type="submit" value="Save">
+        </div>
+    </form>
+
+    
+    
+    {% endblock content %}
+

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}{{ block.super }} - {{ user }}{% endblock head_title %}
+{% block content %}
+<body class="userprofile" style="background-color:darkolivegreen;box-sizing: content-box;margin:0;padding:0">
+
+
+                {% if request.user == user %}<h3 style="color:#12232E;font-family:'Apple Braille',sans-serif;
+                padding:3rem;font-size:3rem">WATCHLIST</h3>{% endif %}
+                 
+
+                {% for listing in watchlist %}
+<div class="container" style="padding:3rem;display:flex;flex-direction:row; flex-wrap:wrap">
+                        
+    <a href="{% url 'listing_view' listing.id %}"style="color:darkred;font-size:1.5rem; margin-right:20px">{{ listing.auction_listings.product }}</a>
+    <div class="card" style="width:18rem;border-style:solid;border-color:black ;background-color:gainsboro">
+  <img src="{{ listing.auction_listings.photo.url }}" class="card-img-top" alt="product" style="max-width: 50%; padding: 2rem">
+  <div class="card-body" style="font-size:2rem">
+    <p class="card-text" style="color:darkred">Current Price: {{ listing.auction_listings.current_price }}$</p>
+      <p class="card-text" style="color:black;font-size:1rem">Potential Winner:<U id="winner" style="color:green; font-size:3rem">{{ listing.auction_listings.current_winner }}</U></p>
+      <p class="card-text" style="font-size:1rem">Start Auction: {{ listing.auction_listings.start }}</p>
+      <p class="card-text"style="font-size:1rem">End Auction :{{ listing.auction_listings.end }}</p>
+  </div>
+</div>
+  </div>
+
+    {% empty %}
+                <div id="image" style="display:flex; justify-content:space-evenly;flex-direction: column">
+          <p id="t_color"style="color:ghostwhite; font-size: 3rem;padding:10rem">NO ADDITIONS SO FAR</p>
+         <img class="emoticon" src="/static/image/emoticon_wait.jpeg" alt="emoticon_wait" style="max-width:40%">
+               </div>
+    {% endfor %}
+</body>
+{% endblock content %}

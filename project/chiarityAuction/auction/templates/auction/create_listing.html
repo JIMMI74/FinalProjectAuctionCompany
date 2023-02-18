@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}New Listing{% endblock %}
+
+{% block content %}
+{% block body %}
+<body id="color" style="background-color:darkolivegreen;">
+<div id="new" style="font-size:1.5rem;padding:1.0rem">
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <h2 style="color:#12232E;font-size:3rem;padding:1.0rem">New Listing</h2>
+    {% load tz %}
+    {% localtime off %}
+    <form action="{% url 'create_listing' %}" method="post" enctype="multipart/form-data"
+          style="color:#12232E;padding:3rem;font-size:1.5rem">
+        {% csrf_token %}
+        <div class="form-group">
+            {{form.as_p}}
+            <input type="submit" value="Save" style="color:burlywood;background-color:#12232E; font-size:1.5rem">
+        </div>
+    </form>
+    {% endlocaltime %}
+  </div>
+</body>
+{% endblock %}
+{% endblock %}

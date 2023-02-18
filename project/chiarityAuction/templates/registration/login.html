@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}{{ block.super }} | Login{% endblock head_title %}
+
+{% block content %}
+<body id="login" style="background-color: darkolivegreen">
+<div class="row justify-content-center mt-4" style="padding:5rem">
+    <div class="col-4 text-center" style="color:#12232E;font-family:'Apple Braille',sans-serif;padding:3rem">
+        <h2 style="font-size:3rem;padding:2rem ">Enter</h2>
+        <form class="" action="{% url 'login' %}" method="POST" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" class="btn btn-info" value="Login" style="color:burlywood;background-color:#12232E;
+            border-radius:10px 10px 10px 10px;font-size:1.5rem">
+             <input type="hidden" name="next" value="{% url 'index' %}">
+        </form>
+        <br>
+        <p><a style="color:#12232E" href="{% url 'password_reset' %}">Password forgiven?</a></p>
+    </div>
+</div>
+</body>
+{% endblock content %}
