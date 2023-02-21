@@ -1,6 +1,6 @@
 from django.contrib import admin
 from accounts.models import Profile
-from auction.models import AuctionListing, Bid, Comment, Watchlist
+from auction.models import AuctionListing, Bid, Comment, Watchlist,Message
 
 
 admin.site.register([  Bid, Comment, Watchlist])
@@ -18,6 +18,15 @@ class ProfileAdmin(admin.ModelAdmin):
     list_display = ('id','user')
     list_filter = ('user',)
     search_fields = ('user',)
+
+@admin.register(Message)
+class MessageAdmin(admin.ModelAdmin):
+    list_display = ('author','id','email','auction_reference_code','info_details_auction','date')
+    list_filter = ('email','auction_reference_code','info_details_auction','date')
+    search_fields = ('email','auction_reference_code','info_details_auction','date')
+
+
+
 
 
 

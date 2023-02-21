@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required, permission_required
+from django.shortcuts import render, redirect, get_object_or_404
 from django.shortcuts import render, HttpResponse
 from django.contrib.auth.models import User
 from auction.models import *
@@ -13,12 +15,13 @@ from django.utils import timezone
 from django.http import JsonResponse
 from django.contrib import messages
 from django.contrib.messages import constants
-from django.shortcuts import render, redirect, get_object_or_404
+
+
 
 import redis
 
 db_redis = redis.StrictRedis(host='127.0.0.1', port=6379, password='', db=0)
-#print(db_redis.get('notifications'))
+#print(db_redis.get('notifications')) # request in terminal if redis is ok
 
 
 time = timezone.now()
@@ -27,12 +30,13 @@ notifications = Notification.objects.all()
 
 
 
+@login_required
 def registeroperation(request):
     user = User.objects.get(username=request.user)
 
     active_listings = AuctionListing.objects.filter(active=False, saved_on_redis=False).all()
-# 2,6,9,12,56,70
-    slider1 = active_listings[0:6]
+
+    slider1 = active_listings[0:13]
 
     print(request.user.id, 'USER ID operation')
     for obj in active_listings:
@@ -41,8 +45,9 @@ def registeroperation(request):
             if obj.current_winner is None:
                 obj.saved_on_redis = True
                 obj.save()
-                db_redis.rpush(f'{obj.product} - {obj.profile}', 'No winner for this auction')
-                notify.send(request.user, recipient=request.user, verb=f'Your auction - {obj.product} - is ended up without winners!', timestamp=time)
+                db_redis.rpush(f'{obj.auction_number} - {obj.product} - {obj.profile}', 'No winner for this auction')
+                notify.send(request.user, recipient=request.user, verb=f'Auction - {obj.auction_number} - {obj.product} '
+                                                                       f'- is ended up without winners!', timestamp=time)
                 return render(request, "register_operation.html", context={'active_listings': active_listings})
 
             else:
@@ -52,20 +57,24 @@ def registeroperation(request):
                 print(obj.hash, 'HASH')
                 obj.save()
 
-                db_redis.rpush(f'{obj.profile} - -{obj.product}- {obj.current_winner}-{obj.current_price} --{obj.end}', f'Congratulations, you won the auction - {obj.profile} - for the price of {obj.current_price}!')
+                db_redis.rpush(f'{obj.profile}- -{obj.auction_number}- -{obj.product}- {obj.current_winner}-'
+                               f'{obj.current_price} --{obj.end}', f'Congratulations, you won the auction - '
+                                                                   f'{obj.profile} - for the price of {obj.current_price}!')
 
-                notify.send(obj, recipient=user, verb=f'your auction - {obj.product} -- is over: {obj.current_winner} has won! Price {obj.current_price} -', timestamp=time)
+                notify.send(obj, recipient=user, verb=f' Auction - {obj.auction_number}-{obj.product} -- is over: {obj.current_winner} '
+                                                      f'has won! Purchased at the price of {obj.current_price} -', timestamp=time)
 
-                notify.send(obj, recipient=obj.current_winner, verb=f'Congratulations you have won the {obj.product} '
-                                                                    f'auction!', timestamp=time)
+                notify.send(obj, recipient=obj.current_winner, verb=f'Congratulations you have won the {obj.auction_number}'
+                                                                    f' - - {obj.product} '
+                                                                    f'auction!', timestamp=time, pkobject=obj.pk)
                 return render(request, "register_operation.html", context={'active_listings': active_listings})
     context = {"active_listings": active_listings, "slider1": slider1,"notifications": notifications, "user": user}
 
     return render(request, "register_operation.html", context)
 
 
-
-def detailauction(request):
+@login_required
+def detailsauctions(request):
     response = []
     details = AuctionListing.objects.filter(active=False, manualClose=True).all()
 
@@ -73,14 +82,13 @@ def detailauction(request):
 
         response.append(
             {
-                'hash': detail.hash,
-                'txId': detail.txId,
+                'Code': detail.auction_number,
                 'price close': detail.current_price,
-                #'winner': detail.current_winner,
-                #'date': detail.end,
                 'product': detail.product,
                 'description': detail.description,
                 'starting bid': detail.starting_bid,
+                'hash': detail.hash,
+                'txId': detail.txId,
 
 
             }
@@ -89,34 +97,10 @@ def detailauction(request):
     return HttpResponse(json.dumps(response), content_type='application/json')
 
 
-def detail_element_auction(request):
-    response = []
-    details = AuctionListing.objects.filter(active=False, manualClose=True).all()
-
-    for detail in details:
-        serializer = ElementAuctionSerializer(detail)
-        detail.writeOnChain(serializer)
-
-        response.append(
-            {
-                'hash': detail.hash,
-                'txId': detail.txId,
-                'price close': detail.current_price,
-                #'winner': detail.current_winner,
-                #'date': detail.end,
-                'product': detail.product,
-                'description': detail.description,
-                'starting bid': detail.starting_bid,
 
 
-            }
-        )
-
-    return HttpResponse(json.dumps(response), content_type='application/json')
-  # ok
 def JSON_profile_view(request, pk):
     auction_date = get_object_or_404(AuctionListing, pk=pk)
-# Json recp_view
     json = ElementAuctionSerializer(auction_date)
     return JsonResponse(json.data)
 
@@ -125,7 +109,7 @@ def JSON_profile_view(request, pk):
 
 def Json_auction(request, pk):
     auction = get_object_or_404(AuctionListing, pk=pk)
-# recap_view
+
     context = {
         'auction': auction,
         'notifications': notifications,
@@ -137,10 +121,10 @@ def Json_auction(request, pk):
 #
 
 
-# notifications view
+
 def notifications_view(request):
     notifications = Notification.objects.filter(recipient=request.user.pk).order_by('-timestamp')
-    # if you are calling this view automatically every notifications is mark as read
+
     notifications.mark_all_as_read()
     notifications.update()
 
@@ -162,3 +146,12 @@ def notifications_delete_view(request):
     notifications = Notification.objects.filter(recipient=request.user.pk)
     notifications.delete()
     return redirect('/notifications/')
+
+
+
+
+def login_view(request):
+
+    return render(request, 'registration/login.html')
+
+

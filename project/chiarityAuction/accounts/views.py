@@ -37,7 +37,7 @@ def registration_view(request):
             print(request.user, 'USER')
             print(notify, 'NOTIFY')
             messages.success(request,
-                             f'{profile.user}Your Account has been created successfully' 
+                             f'{profile.user}- Your Account has been created successfully' 
                              f'You are now able to log in')
             return redirect("index")
     else:
@@ -56,15 +56,6 @@ def user_profile(request, username):
 
     context = {"user": user, "profile": profile, "watchlist": watchlist}
     return render(request, 'accounts/user_profile.html', context)
-
-
-
- 
-  
- 
-  
-
-
 
 
 def edit_profile(request):
@@ -102,7 +93,7 @@ def createdAuction(request):
     print(user, 'USER')
     profile = Profile.objects.get(user=request.user)
     print(profile, 'PROFILE')
-    mycreated = AuctionListing.objects.filter(profile=request.user.pk)
+    mycreated = AuctionListing.objects.filter(profile=request.user.pk).order_by('-start')
     print(mycreated ,'OBJECTS')
 
     context = {"user": user, "profile": profile, "mycreated": mycreated}
@@ -113,6 +104,9 @@ def get_user_or404(request):
         return User.objects.get(pk=request.user.pk)
     except User.DoesNotExist:
         raise Http404("User does not exist")
+
+
+
 
 
 

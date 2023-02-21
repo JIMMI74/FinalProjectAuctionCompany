@@ -6,15 +6,15 @@
 {% block content %}
 {% block body %}
 <body style="padding: 0; box-sizing:content-box; margin:0;background-color: darkolivegreen">
-    <h2 style="color:#12232E;font-family: 'Apple Braille',sans-serif;font-size:3rem">Active Listings</h2>
+    <h2 style="color:#12232E;font-family: 'Apple Braille',sans-serif;font-size:4rem">Active Listings</h2>
    <i class="fa-solid fa-rotate-right" style="color:indianred;padding:1rem"></i>
  <scipt>
      <button id="ref" onclick="fetch('/batch').then(()=>location.reload())" style="width:5vw;height:4vh; margin-top:10px;
-     border-radius:10px 10px 10px 10px">REFRESH</button>
+     border-radius:10px 10px 10px 10px;color:burlywood">REFRESH</button>
  </scipt> <h6 style="color:ghostwhite; margin-left: 60px"> ...updated list</h6>
-        <div style="display:flex; background-color:coral; margin-top:100px; height:60px;border-radius:10px 10px 10px 10px;
-        padding:1.5rem; border-top-style:solid; border-top-color: whitesmoke" >
-            <h6 style="text-indent: 2.5rem; color:#12232E;margin-top:20px; "> CODE</h6>
+        <div style="display:flex; background-color:steelblue; margin-top:100px; height:60px;border-radius:10px 10px 10px 10px;
+        padding:0.5rem; border-top-style:solid; border-top-color: whitesmoke" >
+            <h6 style="text-indent: 3.5rem; color:#12232E;margin-top:20px; "> CODE</h6>
             <h6 style="text-indent: 9rem; color:#12232E;margin-top:20px; "> PRODUCT</h6>
             <h6 style="text-indent: 7rem;color:darkred;margin-top:20px;"> PRICE</h6>
             <h6 style="text-indent: 7rem;color:#12232E;margin-top:20px; "> DESCRIPTION</h6>
@@ -31,26 +31,26 @@
                 <div class="container">
                     <div class="row">
                          <div class="col col-sm">
-                            <a style="color:#12232E;font-family: 'Apple Braille',sans-serif;" >{{listing.auction_number}}   </a>
+                            <a style="color:#12232E;font-family: 'Apple Braille',sans-serif;" ><p>{{listing.auction_number}}</p></a>
                         </div>
                         <div class="col col-sm">
-                            <a style="color:#12232E;font-family: 'Apple Braille',sans-serif;" href="{% url 'listing_view' listing.id %}">{{listing.product}}   </a>
+                            <a style="color:#12232E;font-family: 'Apple Braille',sans-serif;" href="{% url 'listing_view' listing.id %}"><p>{{listing.product}}</p></a>
                         </div>
                         <div class="col col-sm" style="color:darkred;font-family: 'Apple Braille',sans-serif;">
-                            {{listing.current_price}}
+                            <p>{{listing.current_price}}</p>
                         </div>
-                        <div class="col col-lg" style="color:#12232E;font-family: 'Apple Braille',sans-serif;">
-                            {{listing.description}}
+                        <div class="col col-lg" style="color:#12232E;font-family: 'Apple Braille',sans-serif;"><p>
+                            {{listing.description}}</p>
                         </div>
                         <div class="col col-lg" style="color:#12232E;font-family: 'Apple Braille',sans-serif;">
                             {% if listing.photo %}
-                                <img src="{{listing.photo.url}}" alt="" style="max-width:25%;">
+                                <p><img src="{{listing.photo.url}}" alt="" style="max-width:25%;"></p>
                             {% else %}
                                 No picture
                             {% endif %}
                         </div>
                         <div class="col col-sm" style="color:#12232E;font-family: 'Apple Braille',sans-serif;">
-                            {{listing.profile.user}}
+                            <p>{{listing.profile.user}}</p>
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
 
    
     {% empty %}
-        <p>No active listings</p>
+        <p style="font-family: 'Apple Braille',sans-serif; color:#12232E; font-size:2rem">At the moment no active auction, don't wait, go to   <a href="create_listing.html" style="color:darkred; font-size:2rem">Create Auction</a></p>
     {% endfor %}
 </div>
 </body>

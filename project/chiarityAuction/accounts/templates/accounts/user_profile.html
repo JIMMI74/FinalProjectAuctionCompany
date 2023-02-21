@@ -11,10 +11,10 @@
 
                 {% for listing in watchlist %}
 <div class="container" style="padding:3rem;display:flex;flex-direction:row; flex-wrap:wrap">
-                        
-    <a href="{% url 'listing_view' listing.id %}"style="color:darkred;font-size:1.5rem; margin-right:20px">{{ listing.auction_listings.product }}</a>
-    <div class="card" style="width:18rem;border-style:solid;border-color:black ;background-color:gainsboro">
-  <img src="{{ listing.auction_listings.photo.url }}" class="card-img-top" alt="product" style="max-width: 50%; padding: 2rem">
+    <div>
+    <a style="color:#12232E;font-size:1.5rem; margin-right:20px"><p>{{ listing.auction_listings.product }}</p></a>
+    <div class="card" style="width:18rem;border:4px solid steelblue ;background-color:gainsboro;border-radius: 20px 20px 20px 20px; box-shadow:10px 10px 10px 100px olivedrab">
+  <p><img src="{{ listing.auction_listings.photo.url }}" class="card-img-top" alt="product" style="max-width:50%; padding: 2rem;"></p>
   <div class="card-body" style="font-size:2rem">
     <p class="card-text" style="color:darkred">Current Price: {{ listing.auction_listings.current_price }}$</p>
       <p class="card-text" style="color:black;font-size:1rem">Potential Winner:<U id="winner" style="color:green; font-size:3rem">{{ listing.auction_listings.current_winner }}</U></p>
@@ -24,11 +24,17 @@
 </div>
   </div>
 
+    <a style="color:#12232E;font-size:1.9rem; margin-right:250px"><p style="padding-left:10rem">{{ listing.auction_listings.product }}</p></a>
+    <a href="{% url 'listing_view' listing.id %}"style="color:#12232E;font-size:1.5rem; margin-right:50px"><p>{{ listing.auction_listings.auction_number }}</p></a>
+    <div>
+    </div>
+</div>
     {% empty %}
                 <div id="image" style="display:flex; justify-content:space-evenly;flex-direction: column">
           <p id="t_color"style="color:ghostwhite; font-size: 3rem;padding:10rem">NO ADDITIONS SO FAR</p>
          <img class="emoticon" src="/static/image/emoticon_wait.jpeg" alt="emoticon_wait" style="max-width:40%">
                </div>
     {% endfor %}
+
 </body>
 {% endblock content %}

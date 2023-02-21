@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 {% load static %}
 
@@ -8,33 +7,39 @@
 
 
 {% block content %}
-
+<link rel="stylesheet" href="https://kit.fontawesome.com/06490d6e5a.css" crossorigin="anonymous">
+<body style="background-color: darkolivegreen; font-family: 'Apple Braille',sans-serif;color:#12232E">
     <div class="row my-4 justify-content-center">
-        <div class="col-6">
-            <p><em>Auction title</em>: {{ auction.product }}</p>
-            <p><em>Seller</em>: {{ auction.profile.user }}</p>
+        <div class="col-6" style="margin-right:250px">
+            <p><em>Code</em>: {{ auction.auction_number }}</p>
+            <p><em>Auction Object</em>: {{ auction.product }}</p>
+            <p><em>Object Donor</em>: {{ auction.profile.user }}</p>
             <p><em>Date start</em>: {{ auction.start }}</p>
             <p><em>Auction end</em>: {{ auction.end }}</p>
-            <p><em>Opening bid</em>: {{ auction.current_price }}$</p>
+            <p><em>Final Price</em>: {{ auction.current_price }}$</p>
             <p><em>Winner</em>: {{ auction.current_winner }}</p>
             <p><em>txId</em>: <h6>{{ auction.txId }}</h6></p>
             <p><em>txHash</em>: <h6>{{ auction.hash }}</h6></p>
-            <p><em>txHash</em>: <h6>{{ auction.json_auction }}</h6></p>
+            <p><em>JSON-DATE</em>: <h6>{{ auction.json_auction }}</h6></p>
 
         </div>
         <div class="col-3">
-            <p>We are happy to inform you that the auction is over.<br>In this page you can find all the details about the operation.<br>
-               You can also check by yourself the notarization of the auction on the Ethereum Blockchain: 
+            <p>We are happy to inform you that the auction is over.<br>Thank you for participating, your contribution will help the company in its development.<br>
+                In this page you can find all the details about the operation.<br>
+               You can also check by yourself the notarization of the auction on the Ethereum Blockchain:
                click the button below to get a JSON response which collect all the infos related to the auction, copy and paste it in a SHA-256 generator.
-               Then, you can follow the link below to track the transaction by pasting the txId in the Ethereum scanner. 
+               Then, you can follow the link below to track the transaction by pasting the txId in the Ethereum scanner.
                You will get information about the notarization and an encrypted UTF-8 message which must be equal to the SHA-256 that you have generated from the JSON response.</p>
 <!--            <a href="{% url 'send_message' pk=auction.pk %}"><button class="btn btn-send">JSON</button></a>-->
 <!--            <a href="https://xorbin.com/tools/sha256-hash-calculator">SHA256 Generator</a>-->
 <!--            <a href="https://etherscan.io/tx/{{ auction.txId }}">Ethereum Scanner</a>-->
-            <br><br>
-            <a href="https://goerli.etherscan.io/tx/{{ auction.txId }}">Ethereum scanner</a>
         </div>
     </div>
-    
 
+     <div>   <a href="https://goerli.etherscan.io/tx/{{ auction.txId }}"><h6 style="font-family: 'Apple Braille',sans-serif; font-size:1.5rem; width:13vw;height:5vh;
+     background-color:#12232E;border-radius:10px 10px 10px 10px;color:ghostwhite; margin-left:850px;padding:0.5rem;text-indent:0.5rem">Ethereum scanner</h6></a></div>
+    <i class="fa-sharp fa-solid fa-arrows-up-to-line" style="margin-left:900px"><p>click up to line</p></i>
+
+    
+</body>
 {% endblock content %}

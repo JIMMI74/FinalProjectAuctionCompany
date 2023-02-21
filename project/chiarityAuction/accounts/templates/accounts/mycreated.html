@@ -4,39 +4,32 @@
 {% block head_title %}{{ block.super }} -Watchlist{% endblock head_title %}
 
 {% block content %}
-    <h2>My Created:</h2>
+<body class="my_created" style="background-color:darkolivegreen;box-sizing: content-box;margin:0;padding:0">
+    <h2 style="color:#12232E;font-family: 'Apple Braille',sans-serif;font-size:3rem;padding:2rem">My Created:</h2>
 
     {% for listing in mycreated %}
-    <a href="{% url 'listing_view' listing.id %}">
-        <ul>
-            <li>
-                <div class="container">
-                    <div class="row">
-                        <div class="col col-sm">
-                            {{listing.product}}            
-                        </div>
-                        <div class="col col-sm">
-                            {{listing.current_price}}                
-                        </div>  
-                        <div class="col col-lg">
-                            {{listing.description}}
-                        </div>
-                        <div class="col col-lg">
-                            {% if listing.photo %}
-                                <img src="{{listing.photo.url}}" alt="" style="max-width: 50%;">
-                                
-                            {% else %}
-                                No picture
-                            {% endif %}
-                        </div>
-                        <div class="col col-sm">
-                            {{listing.profile}}
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </a>
-    {% endfor %}
+<div class="card mb-3" style="max-width: 540px;padding:3rem; border-radius:20Px 20px 20px 20px; background-color: olive">
+  <div class="row g-0">
+       <div class="col-md-4">
+           {% if listing.photo %}
+           <img src="{{listing.photo.url}}" class="img-fluid rounded-start" alt="" style="max-width:100%%;">
+           {% else %}
+           No picture
+           {% endif %}
+       </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"> <a href="{% url 'listing_view' listing.id %}" style="color:#12232E;font-family: 'Apple Braille',sans-serif">CODE {{listing.auction_number}}</a></h5><h6 style="color:#12232E;font-family: 'Apple Braille',sans-serif">{{listing.start}}</h6>
+        <p class="card-text" style="color:#12232E;font-family: 'Apple Braille',sans-serif">PRODUCT: {{listing.product}}</p>
+        <p class="card-text" style="color:darkred;font-family: 'Apple Braille',sans-serif"><small>PRICE: {{listing.current_price}}</small></p>
+          <p class="card-text" style="color:#12232E;font-family: 'Apple Braille',sans-serif"><small>DESCRIPTION: {{listing.description}}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+     {% empty %}
+        <p>You have no created Auction.</p>
 
+    {% endfor %}
+</body>
 {% endblock content %}

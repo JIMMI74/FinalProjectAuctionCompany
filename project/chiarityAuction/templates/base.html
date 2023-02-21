@@ -25,7 +25,7 @@
   <nav class="navabarAuction navbar navbar-expand-lg navbar-light bg-info">
     <div class="container class">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><h1><strong>AUCTION </strong></h1></a><p style="color:burlywood">MAKE YOU OFFER</p><p class="text-right"></p>
+    <a class="navbar-brand" href="#"><h1 STYLE="text-indent:-2rem;font-size:3rem"><strong>AUCTION </strong></h1></a><p style="color:burlywood">MAKE YOU OFFER</p><p class="text-right"></p>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -47,23 +47,23 @@
 
 
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'index' %}" style="color: whitesmoke"> Active Listings</a>
+            <a class="nav-link" href="{% url 'index' %}" style="color: whitesmoke"> Active Auctions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'create_listing' %}"style="color: whitesmoke">Create listing</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'create_listing' %}"style="color: whitesmoke">Create Auction</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'user_profile' user.username %}" style="color: whitesmoke">My Watchlist</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'my_wins' %}"style="color: whitesmoke">My wins</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'my_wins' %}"style="color: whitesmoke">My Wins</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'history' %}"style="color: whitesmoke">auction history</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'history' %}"style="color: whitesmoke">Auctions History</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'operation' %}"style="color: whitesmoke">Recorded auction history</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'operation' %}"style="color: whitesmoke">Recorded Auction History</a>
         </li>
         {% if user.is_superuser %}
         <li class="nav-item">
@@ -74,32 +74,24 @@
               AD {{ request.user.username }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="{% url 'edit_profile' %}" style="color: burlywood">Edit Profile</a></li>
+              <li><a class="dropdown-item" href="{% url 'operation' %}" style="color: burlywood">Recorder Operations</a></li>
 <!--              <li><a class="dropdown-item" href="{% url 'user_profile' user.username %}" style="color: whitesmoke">My List</a></li>-->
 
               <li><hr class="dropdown-divider"></li>
 
-               <li><a class="dropdown-item" href="{% url 'logout' %}" style="color: burlywood">Logout</a></li>
+               <li><a class="dropdown-item" href="{% url 'JSON_detailsauctions' %}" style="color: burlywood">Auctions Json</a></li>
              </ul>
         </li>
         {% endif %}
-
-
-
-
-
-
-
-
-
-
         <li class="nav-item dropdown">
             <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false " style="color:burlywood">
               {{ request.user.username }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="{% url 'edit_profile' %}" style="color: burlywood">Edit Profile</a></li>
-<!--              <li><a class="dropdown-item" href="{% url 'user_profile' user.username %}" style="color: whitesmoke">My List</a></li>-->
+              <li><a class="dropdown-item" href="{% url 'edit_profile' %}" style="color:steelblue">Edit Profile</a></li>
+              <li><a class="dropdown-item" href="{% url 'JSON_profile_view' request.user.pk %}" style="color:steelblue">Json Detail</a></li>
+                 <li><a class="dropdown-item" href="{% url 'messagecompany' user.username %}" style="color:steelblue">Contact</a></li>
+                <li><a class="dropdown-item" href="{% url 'mycreated' %}" style="color:steelblue">Auction Created</a></li>
 
               <li><hr class="dropdown-divider"></li>
 
