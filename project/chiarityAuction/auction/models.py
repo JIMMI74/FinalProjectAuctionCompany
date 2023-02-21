@@ -17,7 +17,7 @@ class AuctionListing(models.Model):
     product = models.CharField(max_length=50)
     start = models.DateTimeField(blank=True)
     end = models.DateTimeField(blank=True)
-    description = models.TextField(max_length=50)
+    description = models.TextField(max_length=70)
     starting_bid = models.FloatField(default=0.01)
     current_price = models.FloatField()
     current_winner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="current_winner", blank=True, null=True)
