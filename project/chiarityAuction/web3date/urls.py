@@ -1,7 +1,7 @@
 from django.urls import path, include
 import notifications.urls
-from .views import detailsauctions, JSON_profile_view,notifications_delete_view, Json_auction, \
-    login_view
+from .views import detailsauctions, JSON_profile_view,notifications_delete_view, Json_auction
+
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('inbox/notifications/', include(notifications.urls, namespace='notifications')),

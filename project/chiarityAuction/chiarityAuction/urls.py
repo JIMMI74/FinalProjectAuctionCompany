@@ -6,13 +6,13 @@ import notifications.urls
 from auction.views import index, create_listing, listing_view, edit_listing,close_auction, watchlist, set_bid, \
     comment, my_wins, batchHttp, notifications_view, notifications_delete_view, \
     history_auctions, messagecompany
-from accounts.views import userWin, createdAuction
-from web3date.views import registeroperation, login_view
+from accounts.views import userWin, createdAuction,company
+from web3date.views import registeroperation
 
 
 
 urlpatterns = [
-    path('', login_view, name='login_view'),
+    path("", company, name="company"),
     path('index/', index, name='index'),
     path("admin/", admin.site.urls),
     path("accounts/", include("accounts.urls")),
@@ -35,6 +35,7 @@ urlpatterns = [
     path("web3date/", include("web3date.urls")),
     path("history/", history_auctions, name="history"),
     path("messagecompany/<str:username>/",messagecompany, name="messagecompany"),
+
 
 
 

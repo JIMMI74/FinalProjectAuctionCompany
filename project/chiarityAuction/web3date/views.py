@@ -15,7 +15,8 @@ from django.utils import timezone
 from django.http import JsonResponse
 from django.contrib import messages
 from django.contrib.messages import constants
-
+from django.utils import timezone
+from django.http import request
 
 
 import redis
@@ -150,8 +151,6 @@ def notifications_delete_view(request):
 
 
 
-def login_view(request):
 
-    return render(request, 'registration/login.html')
 
 

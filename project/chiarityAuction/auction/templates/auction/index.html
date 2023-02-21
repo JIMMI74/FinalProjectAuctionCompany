@@ -16,7 +16,7 @@
         padding:0.5rem; border-top-style:solid; border-top-color: whitesmoke" >
             <h6 style="text-indent: 3.5rem; color:#12232E;margin-top:20px; "> CODE</h6>
             <h6 style="text-indent: 9rem; color:#12232E;margin-top:20px; "> PRODUCT</h6>
-            <h6 style="text-indent: 7rem;color:darkred;margin-top:20px;"> PRICE</h6>
+            <h6 style="text-indent: 7rem;color:darkred;margin-top:20px;"> PRICE * 1000</h6>
             <h6 style="text-indent: 7rem;color:#12232E;margin-top:20px; "> DESCRIPTION</h6>
             <h6 style="text-indent: 6rem;color:#12232E;margin-top:20px; "> IMAGE</h6>
             <h6 style="text-indent: 8rem;color:#12232E ;margin-top:20px;"> AUTHOR</h6>
@@ -37,14 +37,14 @@
                             <a style="color:#12232E;font-family: 'Apple Braille',sans-serif;" href="{% url 'listing_view' listing.id %}"><p>{{listing.product}}</p></a>
                         </div>
                         <div class="col col-sm" style="color:darkred;font-family: 'Apple Braille',sans-serif;">
-                            <p>{{listing.current_price}}</p>
+                            <p>{{listing.current_price}} $</p>
                         </div>
                         <div class="col col-lg" style="color:#12232E;font-family: 'Apple Braille',sans-serif;"><p>
                             {{listing.description}}</p>
                         </div>
-                        <div class="col col-lg" style="color:#12232E;font-family: 'Apple Braille',sans-serif;">
+                        <div class="col col-lg" style="color:#12232E;font-family: 'Apple Braille',sans-serif;text-indent:2rem">
                             {% if listing.photo %}
-                                <p><img src="{{listing.photo.url}}" alt="" style="max-width:25%;"></p>
+                                <p><img src="{{listing.photo.url}}" alt="" style="max-width:50%;"></p>
                             {% else %}
                                 No picture
                             {% endif %}

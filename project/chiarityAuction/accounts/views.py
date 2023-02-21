@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import authenticate, login
 from .forms import RegistrationForm, UserEditForm
 from .models import Profile
@@ -57,7 +58,7 @@ def user_profile(request, username):
     context = {"user": user, "profile": profile, "watchlist": watchlist}
     return render(request, 'accounts/user_profile.html', context)
 
-
+@login_required
 def edit_profile(request):
     if request.method == 'POST':
         userform = UserEditForm(data=request.POST, instance=request.user)
@@ -107,7 +108,8 @@ def get_user_or404(request):
 
 
 
-
+def company(request):
+    return render(request, 'accounts/company.html')
 
 
 

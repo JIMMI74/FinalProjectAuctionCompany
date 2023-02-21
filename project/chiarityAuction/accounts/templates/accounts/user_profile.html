@@ -6,7 +6,7 @@
 
 
                 {% if request.user == user %}<h3 style="color:#12232E;font-family:'Apple Braille',sans-serif;
-                padding:3rem;font-size:3rem">WATCHLIST</h3>{% endif %}
+                padding:1rem;font-size:3rem">WATCHLIST</h3>{% endif %}
                  
 
                 {% for listing in watchlist %}
@@ -32,7 +32,7 @@
     {% empty %}
                 <div id="image" style="display:flex; justify-content:space-evenly;flex-direction: column">
           <p id="t_color"style="color:ghostwhite; font-size: 3rem;padding:10rem">NO ADDITIONS SO FAR</p>
-         <img class="emoticon" src="/static/image/emoticon_wait.jpeg" alt="emoticon_wait" style="max-width:40%">
+         <img class="emoticon" src="/static/image/partecipate.jpg" alt="emoticon_wait" style="max-width:50%;margin-bottom:50px">
                </div>
     {% endfor %}
 
