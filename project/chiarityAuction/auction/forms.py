@@ -8,9 +8,9 @@ class AuctionListingForm(forms.ModelForm):
     class Meta:
         model = AuctionListing
         fields = ['product', 'photo', 'description', 'starting_bid', 'date', 'start', 'end']
-        widgets = {'product': forms.TextInput(attrs={'placeholder': '20 characters max.'}),
-                   'description': forms.Textarea(attrs={'placeholder': '50 characters max; ''for more information leave'
-                                                                       'an expression of interest in the forum; '
+        widgets = {'product': forms.TextInput(attrs={'placeholder': '50 characters max.'}),
+                   'description': forms.Textarea(attrs={'placeholder': '70 characters max; ''for more information leave'
+                                                                       'an expression of interest in the forum,or Contact form'
                                                                        'we will contact you by email'}),
                    'start': forms.DateTimeInput(attrs={'type': 'datetime-local', 'required': 'true'}),
                    'end': forms.DateTimeInput(attrs={'type': 'datetime-local'})}
