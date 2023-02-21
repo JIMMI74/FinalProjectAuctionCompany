@@ -108,6 +108,9 @@ def JSON_profile_view(request, pk):
 
 
 
+
+
+
 def Json_auction(request, pk):
     auction = get_object_or_404(AuctionListing, pk=pk)
 

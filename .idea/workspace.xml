@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ecc0d99-ad5a-4fb6-93f3-47223541abea" name="Changes" comment="update">
+    <list default="true" id="2ecc0d99-ad5a-4fb6-93f3-47223541abea" name="Changes" comment=" update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/accounts/templates/accounts/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/accounts/templates/accounts/user_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/auction/templates/auction/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/auction/templates/auction/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/auction/templates/auction/my_wins.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/auction/templates/auction/my_wins.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/auction/templates/auction/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/auction/templates/auction/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/accounts/templates/accounts/mycreated.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/accounts/templates/accounts/mycreated.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/chiarityAuction/auction/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/auction/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/chiarityAuction/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/chiarityAuction/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/static/image/emo.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/static/image/emoticon_wait.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/project/chiarityAuction/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/templates/registration/logged_out.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/templates/registration/logged_out.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/chiarityAuction/web3date/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/web3date/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/chiarityAuction/web3date/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/web3date/views.py" afterDir="false" />
     </list>
@@ -90,7 +82,7 @@
       <workItem from="1676119650771" duration="43403000" />
       <workItem from="1676290564734" duration="179542000" />
       <workItem from="1676812114703" duration="34690000" />
-      <workItem from="1676894553363" duration="55883000" />
+      <workItem from="1676894553363" duration="58671000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1676730051383</created>
@@ -113,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676976713709</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary=" update">
+      <created>1677003981679</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677003981679</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +164,7 @@
     <MESSAGE value="first" />
     <MESSAGE value="altri" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value=" update" />
+    <option name="LAST_COMMIT_MESSAGE" value=" update" />
   </component>
 </project>
