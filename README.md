@@ -3,6 +3,7 @@ install python 3.9 (packaging already entered).
 create a virtual environment.
 pip install -r requirements.txt ;
 https://redis.io/docs/getting-started/installation/;
+Plug your private key into infura's utils.py and wallet.py file (w3 = Web3(Web3.HTTPProvider('https://goerli.infura.io/v3/PKEY'))https://www.infura.io
 python manage.py crontab add ;
 python manage.py crontab show ;  
 python manage.py runserver ;
