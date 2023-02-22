@@ -89,7 +89,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="{% url 'edit_profile' %}" style="color:steelblue">Edit Profile</a></li>
-              <li><a class="dropdown-item" href="{% url 'JSON_profile_view' request.user.pk %}" style="color:steelblue">Json Details Auction</a></li>
+              <li><a class="dropdown-item" href="{% url 'JSON_profile_view' id=request.user.id %}" style="color:steelblue">Json Details Auction</a></li>
                  <li><a class="dropdown-item" href="{% url 'messagecompany' user.username %}" style="color:steelblue">Contact</a></li>
                 <li><a class="dropdown-item" href="{% url 'mycreated' %}" style="color:steelblue">Auction Created</a></li>
 
