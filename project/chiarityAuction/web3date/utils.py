@@ -1,7 +1,7 @@
 from web3 import Web3
 
 def sendTransaction(message):
-    w3 = Web3(Web3.HTTPProvider('https://goerli.infura.io/v3/fdc1544f98cf4cad88593ef6c26d108a'))
+    w3 = Web3(Web3.HTTPProvider('https://goerli.infura.io/v3/PKEY'))
     address = '0xBa4f66ec7cfF5733A0775d31D6e74eF1155a0fb1'
     privateKey = '0xe4d2fe1c45ab8afa67bea86d3f8d84f642f7589005a2a3a81c9f04eb0cd9db25'
     nonce = w3.eth.getTransactionCount(address)
