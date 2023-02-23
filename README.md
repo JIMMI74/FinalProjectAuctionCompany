@@ -13,3 +13,5 @@ redis-cli connected to your local host. If you want you can use  a key (key*) or
 open homepage and create auction;
 Each winner receives an auction winning notification with all the references also in Json format;
 in the winning link you will find a button that will take you to Goerli-Etherscan where you can see the notarized winning data and verify the transaction on the blockchain;
+
+preferable mac  because some elements are not responsive
