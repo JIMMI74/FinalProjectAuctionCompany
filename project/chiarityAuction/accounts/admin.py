@@ -10,7 +10,11 @@ class AuctionListingAdmin(admin.ModelAdmin):
 
     list_display = ('pk', 'auction_number', 'current_winner','product', 'description', 'current_price', 'date', 'active', 'profile','photo'
                     ,'slug','starting_bid', 'start','end')
+<<<<<<< HEAD
+    list_filter = ('product', 'current_winner','description', 'current_price', 'date', 'active', 'profile')
+=======
     list_filter = ('product', 'current_winner', 'description', 'current_price', 'date', 'active', 'profile')
+>>>>>>>  update
     search_fields = ('product', 'description', 'current_price', 'date', 'active', 'profile')
     
 @admin.register(Profile)

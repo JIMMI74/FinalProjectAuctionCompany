@@ -1,0 +1,22 @@
+Index: project/chiarityAuction/accounts/admin.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django.contrib import admin\nfrom accounts.models import Profile\nfrom auction.models import AuctionListing, Bid, Comment, Watchlist,Message\n\n\nadmin.site.register([  Bid, Comment, Watchlist])\n\n@admin.register(AuctionListing)\nclass AuctionListingAdmin(admin.ModelAdmin):\n\n    list_display = ('pk', 'auction_number', 'current_winner','product', 'description', 'current_price', 'date', 'active', 'profile','photo'\n                    ,'slug','starting_bid', 'start','end')\n    list_filter = ('product', 'current_winner', 'description', 'current_price', 'date', 'active', 'profile')\n    search_fields = ('product', 'description', 'current_price', 'date', 'active', 'profile')\n    \n@admin.register(Profile)\nclass ProfileAdmin(admin.ModelAdmin):\n    list_display = ('id','user')\n    list_filter = ('user',)\n    search_fields = ('user',)\n\n@admin.register(Message)\nclass MessageAdmin(admin.ModelAdmin):\n    list_display = ('author','id','email','auction_reference_code','info_details_auction','date')\n    list_filter = ('email','auction_reference_code','info_details_auction','date')\n    search_fields = ('email','auction_reference_code','info_details_auction','date')\n\n\n\n\n\n\n\n\n\"\"\" @admin.unregister(User)\n@admin.register(User)\nclass UserAdmin(admin.ModelAdmin):\n    list_display = ('id','username', 'email', 'first_name', 'last_name')\n    list_filter = ('username', 'email', 'first_name', 'last_name') \"\"\"
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/project/chiarityAuction/accounts/admin.py b/project/chiarityAuction/accounts/admin.py
+--- a/project/chiarityAuction/accounts/admin.py	(revision 52cd897c2c6afde3e661da29e54bb7d276aa0b7c)
++++ b/project/chiarityAuction/accounts/admin.py	(date 1678102232130)
+@@ -10,7 +10,11 @@
+ 
+     list_display = ('pk', 'auction_number', 'current_winner','product', 'description', 'current_price', 'date', 'active', 'profile','photo'
+                     ,'slug','starting_bid', 'start','end')
++<<<<<<< HEAD
++    list_filter = ('product', 'current_winner','description', 'current_price', 'date', 'active', 'profile')
++=======
+     list_filter = ('product', 'current_winner', 'description', 'current_price', 'date', 'active', 'profile')
++>>>>>>>  update
+     search_fields = ('product', 'description', 'current_price', 'date', 'active', 'profile')
+     
+ @admin.register(Profile)
