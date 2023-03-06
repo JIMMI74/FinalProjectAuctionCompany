@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ecc0d99-ad5a-4fb6-93f3-47223541abea" name="Changes" comment=" update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="2ecc0d99-ad5a-4fb6-93f3-47223541abea" name="Changes" comment=" update 4">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_03_23,_12_30_[Changes]/shelved.patch" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/chiarityAuction/accounts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/accounts/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/auction/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/auction/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/auction/templates/auction/history.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/auction/templates/auction/history.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/web3date/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/web3date/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/web3date/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/web3date/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/web3date/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/web3date/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/web3date/wallet.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/web3date/wallet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/requirements.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +28,6 @@
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -94,7 +85,7 @@
       <workItem from="1677070814355" duration="12819000" />
       <workItem from="1677164213579" duration="929000" />
       <workItem from="1677400645104" duration="209000" />
-      <workItem from="1678099652533" duration="2020000" />
+      <workItem from="1678099652533" duration="3319000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1676730051383</created>
@@ -131,7 +122,28 @@
       <option name="project" value="LOCAL" />
       <updated>1677008469100</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary=" update">
+      <created>1678102092280</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678102092280</updated>
+    </task>
+    <task id="LOCAL-00007" summary=" update 2">
+      <created>1678102190062</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678102190062</updated>
+    </task>
+    <task id="LOCAL-00008" summary=" update 3">
+      <created>1678102257309</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678102257309</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +196,8 @@
     <MESSAGE value="altri" />
     <MESSAGE value="update" />
     <MESSAGE value=" update" />
-    <option name="LAST_COMMIT_MESSAGE" value=" update" />
+    <MESSAGE value=" update 2" />
+    <MESSAGE value=" update 3" />
+    <option name="LAST_COMMIT_MESSAGE" value=" update 3" />
   </component>
 </project>
