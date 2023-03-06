@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ecc0d99-ad5a-4fb6-93f3-47223541abea" name="Changes" comment=" update 4" />
+    <list default="true" id="2ecc0d99-ad5a-4fb6-93f3-47223541abea" name="Changes" comment="test main" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678103076276</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="test main">
+      <created>1678104497795</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1678104497795</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,6 +216,7 @@
     <MESSAGE value=" update 2" />
     <MESSAGE value=" update 3" />
     <MESSAGE value=" update 4" />
-    <option name="LAST_COMMIT_MESSAGE" value=" update 4" />
+    <MESSAGE value="test main" />
+    <option name="LAST_COMMIT_MESSAGE" value="test main" />
   </component>
 </project>
