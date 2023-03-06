@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}New Listing{% endblock %}
+
+{% block content %}
+
+<body style="padding: 0; box-sizing:content-box; margin:0;background-color: darkolivegreen">
+{% if request.user == user %} <h3 style="font-family: 'Apple Braille',sans-serif;color:#12232E;padding:3rem">
+  {{user.username}} Ask for detailed information about the auction you want </h3> {% endif %}
+
+
+  <form method="post" novalidate style="font-family: 'Apple Braille',sans-serif;color:#12232E;font-size:1.5rem">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" style="background-color:steelblue;border-radius:20px 20px 20px 20px;padding:0.5rem;
+    margin-left:600px">Send Info</button>
+  </form>
+
+</body>
+
+    {% endblock %}
+    
