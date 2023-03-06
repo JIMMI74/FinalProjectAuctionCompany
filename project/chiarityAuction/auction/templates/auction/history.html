@@ -11,10 +11,10 @@
         padding:0.5rem; border-top-style:solid; border-top-color: whitesmoke" >
             <h6 style="text-indent: 3.5rem; color:#12232E;margin-top:20px; "> CODE</h6>
             <h6 style="text-indent: 9rem; color:#12232E;margin-top:20px; "> PRODUCT</h6>
-            <h6 style="text-indent: 7rem;color:darkred;margin-top:20px;"> PRICE</h6>
-            <h6 style="text-indent: 7rem;color:#12232E;margin-top:20px; "> DESCRIPTION</h6>
-            <h6 style="text-indent: 6rem;color:#12232E;margin-top:20px; "> IMAGE</h6>
-            <h6 style="text-indent: 8rem;color:#12232E ;margin-top:20px;"> AUTHOR</h6>
+            <h6 style="text-indent: 7rem;color:#12232E;margin-top:20px;"> END AUCTION</h6>
+            <h6 style="text-indent: 8rem;color:darkred;margin-top:20px;font-size:1.5rem ">WINNER</h6>
+            <h6 style="text-indent: 6rem;color:whitesmoke;margin-top:20px; "> PRICE</h6>
+            <h6 style="text-indent: 8rem;color:#12232E ;margin-top:20px;"> IMAGE</h6>
             </div>
 <div id="background" style="border-style:solid;border-color:darkgreen;border-top-color:ghostwhite;background-color:olivedrab">
 
@@ -26,13 +26,13 @@
 <div>
     <div class="row" style="padding:3rem">
          <div class="col col-sm">
-             <a style="color:#12232E;font-family: 'Apple Braille',sans-serif;" href="{% url 'listing_view' listing.id %}"><p>{{listing.auction_number}}</p></a>
+             <a style="color:#12232E;font-family: 'Apple Braille',sans-serif;font-size:1.5rem;" href="{% url 'listing_view' listing.id %}"><p>{{listing.auction_number}}</p></a>
          </div>
         <div class="col col-sm">
             <a style="color:#12232E;font-size:1.5rem;font-family:'Apple Braille',sans-serif;size:1.5rem"><p>{{listing.product}}</p></a>
         </div>
         <div class="col col-sm" style="color:#12232E;font-family:'Apple Braille',sans-serif;">
-            <p>{{listing.end}}</p>
+            <p style="text-indent:1.5rem ">{{listing.end}}</p>
         </div>
         <div class="col col-lg" style="font-family:'Apple Braille',sans-serif;font-size:1.5rem;color:darkred;
         text-indent:5rem">

@@ -6,11 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="2ecc0d99-ad5a-4fb6-93f3-47223541abea" name="Changes" comment=" update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/accounts/templates/accounts/mycreated.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/accounts/templates/accounts/mycreated.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/auction/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/auction/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/accounts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/accounts/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/auction/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/auction/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/auction/templates/auction/history.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/auction/templates/auction/history.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/chiarityAuction/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/chiarityAuction/web3date/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/web3date/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/web3date/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/web3date/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/chiarityAuction/web3date/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/web3date/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/chiarityAuction/web3date/wallet.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chiarityAuction/web3date/wallet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/requirements.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +45,10 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/project/chiarityAuction/auction/templates/auction/history.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/project/chiarityAuction/templates/base.html" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2LaqfjBgh0GkzWLNyWWFqAiSm1n" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -82,7 +90,11 @@
       <workItem from="1676119650771" duration="43403000" />
       <workItem from="1676290564734" duration="179542000" />
       <workItem from="1676812114703" duration="34690000" />
-      <workItem from="1676894553363" duration="58671000" />
+      <workItem from="1676894553363" duration="61696000" />
+      <workItem from="1677070814355" duration="12819000" />
+      <workItem from="1677164213579" duration="929000" />
+      <workItem from="1677400645104" duration="209000" />
+      <workItem from="1678099652533" duration="2020000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1676730051383</created>
@@ -112,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677003981679</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary=" update">
+      <created>1677008469100</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677008469100</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

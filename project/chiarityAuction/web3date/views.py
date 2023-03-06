@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.shortcuts import render, HttpResponse
 from django.contrib.auth.models import User
 from auction.models import *
+from accounts.models import Profile
 from django.utils import timezone
 from notifications.models import Notification
 from notifications.signals import notify
@@ -17,8 +18,6 @@ from django.contrib import messages
 from django.contrib.messages import constants
 from django.utils import timezone
 from django.http import request
-
-
 import redis
 
 db_redis = redis.StrictRedis(host='127.0.0.1', port=6379, password='', db=0)
@@ -100,10 +99,31 @@ def detailsauctions(request):
 
 
 
-def JSON_profile_view(request, pk):
-    auction_date = get_object_or_404(AuctionListing, pk=pk)
-    json = ElementAuctionSerializer(auction_date)
-    return JsonResponse(json.data)
+def JSON_profile_view(request, id):
+    profile = Profile.objects.get(user=request.user)
+    print(profile, 'profile')
+    user = get_object_or_404(User, id=id)
+    print(user, 'user')
+    auction_date = AuctionListing.objects.filter(profile=id, active=False).all()
+    for i in auction_date:
+        number = i.auction_number
+        product = i.product
+        description = i.description
+        starting_bid = i.starting_bid
+        current_price = i.current_price
+        current_winner = f'{i.current_winner}'
+        profile = f'{i.profile}'
+        start = f'{i.start}'
+        end = f'{i.end}'
+
+        context = {number: {'product': product, 'description': description, 'starting_bid': starting_bid,
+                            'current_price': current_price, 'current_winner': current_winner, 'profile': profile,
+                            'start': start, 'end': end}}
+        print(context)  # request in terminal if redis is ok
+        # print(db_redis.get('notifications'))
+        return JsonResponse(context)
+
+
 
 
 
@@ -122,7 +142,7 @@ def Json_auction(request, pk):
     return render(request, 'web3date/send_message_auction.html', context)
 
 
-#
+
 
 
 
